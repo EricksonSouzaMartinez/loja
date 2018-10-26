@@ -4,6 +4,7 @@ include "menu.php";
 
 if(isset($_GET['cadastro']) && $_GET['cadastro']==1){
     ?>
+    <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
     <p class="alert-success"> A Produto foi cadastrado</p>
     <?php
 
