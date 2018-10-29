@@ -6,3 +6,11 @@ function inserePessoa($conexao,$nome,$telefone,$acesso)
 
     return mysqli_query($conexao, $query);
 }
+function mostraPessoa($conexao){
+    $pessoas=array();
+    $resultado=mysqli_query($conexao,"select * from Pessoas");
+    while ($pessoa = mysqli_fetch_assoc($resultado)){
+        array_push($pessoas,$pessoa);
+    }
+    return $pessoas;
+}
