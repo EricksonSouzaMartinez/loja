@@ -17,5 +17,4 @@ function mostraProdutos($conexao){
 function deleteProduto($conexao,$id){
     $query="delete from Produtos where IDProduto = {$id}";
     return mysqli_query($conexao,$query);
-
 }

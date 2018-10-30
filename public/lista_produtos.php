@@ -5,7 +5,7 @@ include "../_sys/consulta_produto.php";?>
 <?php include "menu.php";
 include "conteudo.php";
 
-if(isset($_GET['removido']) && $_GET['removido']==1){
+if(array_key_exists("removido",$_GET) && $_GET["removido"]==1){
     ?>
     <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
     <p class="alert-success"> A Produto foi Excluido</p>
@@ -17,7 +17,7 @@ if(isset($_GET['removido']) && $_GET['removido']==1){
     <p class="alert-danger"> A Produto nao foi Excluido</p>
     <?php
 }
-if(isset($_GET['cadastro']) && $_GET['cadastro']==1){
+if(array_key_exists("cadastro",$_GET) && $_GET["cadastro"]==1){
     ?>
     <p class="alert-success"> A Produto foi cadastrado</p>
     <?php

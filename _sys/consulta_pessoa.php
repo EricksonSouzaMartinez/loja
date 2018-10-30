@@ -14,3 +14,8 @@ function mostraPessoa($conexao){
     }
     return $pessoas;
 }
+
+function deletePessoa($conexao,$id){
+    $query="delete from Pessoas where IDPessoa = {$id}";
+    return mysqli_query($conexao,$query);
+}
