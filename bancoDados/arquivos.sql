@@ -89,3 +89,7 @@ COMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 create table Categorias (id integer auto_increment primary key,
 Nome_categoria varchar(255));
+
+
+insert into Categorias (Nome_categoria) values("Esporte"),("Automovel"),("Profissão"),("Escolar");
+alter table Produtos add column categoria_id integer;

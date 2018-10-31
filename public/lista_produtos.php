@@ -10,24 +10,15 @@ if(array_key_exists("removido",$_GET) && $_GET["removido"]==1){
     <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
     <p class="alert-success"> A Produto foi Excluido</p>
     <?php
-
-
-}else {
-    ?>
-    <p class="alert-danger"> A Produto nao foi Excluido</p>
-    <?php
 }
 if(array_key_exists("cadastro",$_GET) && $_GET["cadastro"]==1){
     ?>
     <p class="alert-success"> A Produto foi cadastrado</p>
     <?php
-}else {
-    ?>
-    <p class="alert-danger"> A Produto nao foi cadastrado</p>
-    <table class="table table-striped table-bordered">
-    <?php
 }
-
+?>
+    <table class="table table-striped table-bordered">
+<?php
 $produtos= mostraProdutos($conexao);
 foreach($produtos as $produto):
     ?>
@@ -35,8 +26,18 @@ foreach($produtos as $produto):
         <td><?=$produto['Nome_Produto']?></td>
         <td><?=$produto['Preco_Produto']?></td>
         <td><?=$produto['Quantidade_Produto']?></td>
-        <td >
-            <a class="text-danger" href="../_sys/remove_produto.php?id=<?=$produto['IDProduto']?>">Remover</a>
+        <td><?=$produto['categoria_nome']?></td>
+        <td>
+            <form action="../_sys/remove_produto.php.php" method="post">
+                <input name="id" hidden value="<?=$produto['IDProduto']?>">
+                <button class="btn-danger">Remover</button>
+            </form>
+        </td>
+        <td>
+            <form action="../_sys/edita_produto.php.php" method="post">
+                <input name="id" hidden value="<?=$produto['IDProduto']?>">
+                <button class="btn-dark">Editar</button>
+            </form>
         </td>
 
     </tr>

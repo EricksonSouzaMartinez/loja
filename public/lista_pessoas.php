@@ -10,21 +10,15 @@ if(array_key_exists("removido",$_GET) && $_GET['removido']==1){
     <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
     <p class="alert-success"> A Pessoa foi Excluido</p>
     <?php
-}else {
-    ?>
-    <p class="alert-danger"> A Pessoa nao foi Excluido</p>
-    <?php
 }
 if(array_key_exists("cadastro",$_GET) && $_GET['cadastro']==1){
 ?>
     <p class="alert-success"> A Pessoa foi cadastrada</p>
 <?php
-}else {
-    ?>
-    <p class="alert-danger"> A Pessoa nao foi cadastrada</p>
-    <table class="table table-striped table-bordered">
-    <?php
 }
+?>
+    <table class="table table-striped table-bordered">
+<?php
 $pessoas= mostraPessoa($conexao);
 foreach($pessoas as $pessoa):
     ?>
