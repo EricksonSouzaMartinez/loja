@@ -22,13 +22,14 @@ if(array_key_exists("cadastro",$_GET) && $_GET["cadastro"]==1){
 $produtos= mostraProdutos($conexao);
 foreach($produtos as $produto):
     ?>
-    <tr>
+    <tr style="text-align: center">
         <td><?=$produto['Nome_Produto']?></td>
         <td><?=$produto['Preco_Produto']?></td>
         <td><?=$produto['Quantidade_Produto']?></td>
-        <td><?=$produto['categoria_nome']?></td>
+        <td><?=$produto['categoria_nome'];?></td>
+        <td><?=($produto['usado']==1)?"sim":"Nao";?></td>
         <td>
-            <form action="../_sys/remove_produto.php.php" method="post">
+            <form action="../_sys/remove_produto.php" method="post">
                 <input name="id" hidden value="<?=$produto['IDProduto']?>">
                 <button class="btn-danger">Remover</button>
             </form>

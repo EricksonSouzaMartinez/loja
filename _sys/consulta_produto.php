@@ -1,8 +1,8 @@
 <?php
 include "../conexao/conecta.php";
-function insereProduto($conexao,$nome_produto,$preco_produto,$quantidade_produto,$categoria){
-    $query = "insert into Produtos(Nome_Produto, Preco_Produto, Quantidade_Produto,categoria_id)
- values ('{$nome_produto}',{$preco_produto},{$quantidade_produto},{$categoria})";
+function insereProduto($conexao,$nome_produto,$preco_produto,$quantidade_produto,$categoria,$usado){
+    $query = "insert into Produtos(Nome_Produto, Preco_Produto, Quantidade_Produto,categoria_id,usado)
+ values ('{$nome_produto}',{$preco_produto},{$quantidade_produto},{$categoria},$usado)";
      return mysqli_query($conexao,$query);
 }
 

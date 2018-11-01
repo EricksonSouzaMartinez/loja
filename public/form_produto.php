@@ -22,13 +22,19 @@ $categorias= listaCategoria($conexao);
             <td><label for="quantidade">Quantidade:</label>
                 <input class="form-control" type="text" name="quantidade_produto"></td>
         </tr>
-
+        <tr>
+            <td><label for="usado">Usado:</label>
+                <input type="checkbox" name="Usado" value="true"></td>
+        </tr>
         <tr>
             <td><label for="quantidade">Categorias:</label>
+                <select name="categoria_id" class="form-control">
                 <?php foreach ($categorias as $categoria): ?>
-                       <input type="radio" name="categoria_id" value="<?=$categoria['id']?>">
+                       <option  value="<?=$categoria['id']?>">
                        <?=$categoria['Nome_categoria']?>
                 <?php endforeach;?>
+                       </option>>
+                </select>
             </td>
         </tr>
         <tr>

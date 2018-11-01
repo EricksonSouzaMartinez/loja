@@ -93,3 +93,6 @@ Nome_categoria varchar(255));
 
 insert into Categorias (Nome_categoria) values("Esporte"),("Automovel"),("Profissão"),("Escolar");
 alter table Produtos add column categoria_id integer;
+
+alter table Produtos add
+column usado boolean;
