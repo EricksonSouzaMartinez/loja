@@ -35,7 +35,7 @@ foreach($produtos as $produto):
             </form>
         </td>
         <td>
-            <form action="../_sys/edita_produto.php.php" method="post">
+            <form action="../public/form_edita_produto.php" method="post">
                 <input name="id" hidden value="<?=$produto['IDProduto']?>">
                 <button class="btn-dark">Editar</button>
             </form>

@@ -33,7 +33,7 @@ foreach($pessoas as $pessoa):
                 </form>
         </td>
         <td>
-                <form action="../_sys/edita_pessoa.php" method="post">
+                <form action="../public/form_edita_pessoa.php" method="post">
                     <input name="id" hidden value="<?=$pessoa['IDPessoa']?>">
                     <button class="btn-dark">Editar</button>
                 </form>
