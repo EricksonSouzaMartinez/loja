@@ -5,6 +5,8 @@ include "cabecalho.php";?>
 <?php
 include "menu.php";
 include "conteudo.php";
+include "../_sys/logica_usuario.php";
+verificaUsuario();
 if(array_key_exists("removido",$_GET) && $_GET['removido']==1){
     ?>
     <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">

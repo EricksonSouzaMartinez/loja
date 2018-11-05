@@ -5,8 +5,10 @@ $categorias= listaCategoria($conexao);
 ?>
 <h1 class="adiciona-pessoa">Novo Cadastro</h1>
 <?php include "menu.php";?>
-<?php include "conteudo.php";?>
-<form action="../_sys/adiciona-produto.php" method="post">
+<?php include "conteudo.php";
+include "../_sys/logica_usuario.php";
+verificaUsuario();?>
+<form action="../_sys/adiciona-produto.php" class="form" method="post">
 	<table class="table">
         <tr>
             <td><label for="produto">Produto:</label>
@@ -41,5 +43,6 @@ $categorias= listaCategoria($conexao);
             <td><button CLASS="btn">Cadastrar</button></td>
         </tr>
 	</table>
+    <a href="form_categoria.php">Nova Categoria</a>
 </form>
 <?php include "rodape.php";

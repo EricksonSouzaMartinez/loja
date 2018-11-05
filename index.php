@@ -1,10 +1,39 @@
 <?php
 include "public/cabecalho.php";
+include "_sys/logica_usuario.php";
+include "_sys/mostra_alerta.php";
 ?>
 	<head>
 		<link rel="stylesheet" type="text/css" href="css/index.css">
 	</head>
-		<h1 class="principal">Bem Vindo</h1>
+		<h1 class="principal">Nossa Loja</h1>
 	</div>
-<?php include "public/menu.php";?>
-<?php include "public/conteudo.php";?>
+<?php 
+
+if(usuarioEstalogado()){
+include "public/menu.php";
+include "public/conteudo.php";
+mostraAlerta("success");
+mostraAlerta("danger");
+?>
+		<p class="alert-success">Voce esta logado <?=usuariologado();?>.</p>
+<?php
+}else{
+
+?>
+<h2>Login</h2>
+<form action="public/login.php" class="form_login" method="post">
+	<table class="table">
+		<tr>
+			<td>Nome:<input class="form-control" type="text" name="nome_pessoa"></td>
+		</tr>
+		<tr>
+			<td>Telefone:<input class="form-control" type="text" name="telefone_pessoa" maxlength="11"></td>
+		</tr>
+		<tr><td>
+			<button class="btn btn-primary">Logar</button></td>
+		</tr>
+	</table>
+</form>
+<?php 
+}

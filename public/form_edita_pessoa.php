@@ -3,11 +3,13 @@
 <?php include "menu.php";?>
 <?php include "conteudo.php";
 include "../_sys/consulta_pessoa.php";
-
+include "../_sys/logica_usuario.php";
+verificaUsuario();
 $id=$_POST['id'];
-$pessoa=buscaProduto($conexao,$id);
+$pessoa=buscaPessoa($conexao,$id);
+//var_dump($pessoa);
 ?>
-    <form action="../_sys/dita_pessoa.php" method="post">
+    <form action="../_sys/edita_pessoa.php" class="form" method="post">
 
 
         <table class="table">
@@ -24,9 +26,9 @@ $pessoa=buscaProduto($conexao,$id);
 
             <tr>
                 <td>Cliente:
-                    <input type="radio" name="acesso" value="1">
+                    <input type="radio" name="acesso" <?=($pessoa['acesso']==1)?"checked='checked'":""?>value="1">
                     Funcionario:
-                    <input type="radio" name="acesso" value="2"></td>
+                    <input type="radio" name="acesso" <?=($pessoa['acesso']==2)?"checked='checked'":""?>value="2"></td>
             </tr>
 
             <tr>

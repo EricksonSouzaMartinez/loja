@@ -1,5 +1,7 @@
 <?php
 include "consulta_pessoa.php";
+include "../_sys/logica_usuario.php";
+verificaUsuario();
 $id=$_POST['id'];
 //var_dump($id);
 if (deletePessoa($conexao,$id)){

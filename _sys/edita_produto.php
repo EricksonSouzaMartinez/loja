@@ -1,5 +1,7 @@
 <?php
 include "consulta_produto.php";
+include "../_sys/logica_usuario.php";
+verificaUsuario();
 $id=$_POST['id'];
 $nome_produto=$_POST['nome_produto'];
 $preco_produto=$_POST['preco_produto'];

@@ -3,20 +3,20 @@ include "../_sys/consulta_categoria.php";
 include "../_sys/consulta_produto.php";
 
 $categorias= listaCategoria($conexao);
-
 $id=$_POST['id'];
 $produto=buscaProduto($conexao,$id);
-
 ?>
     <h1 class="adiciona-pessoa">Alterar Produto</h1>
 <?php include "menu.php";?>
-<?php include "conteudo.php";?>
-    <form action="../_sys/edita_produto.php" method="post">
+<?php include "conteudo.php";
+include "../_sys/logica_usuario.php";
+verificaUsuario();?>
+    <form action="../_sys/edita_produto.php" class="form" method="post">
         <table class="table">
             <input name="id" type="hidden" value="<?=$produto['IDProduto']?>">
             <tr>
                 <td><label for="produto">Produto:</label>
-                    <input class="form-control" type="text" name="nome_produto"value="<?=$produto['Nome_Produto']?>"></td>
+                    <input class="form-control" type="text" name="nome_produto" value="<?=$produto['Nome_Produto']?>"></td>
             </tr>
 
             <tr>
