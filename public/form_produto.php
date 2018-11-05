@@ -8,8 +8,8 @@ $categorias= listaCategoria($conexao);
 <?php include "conteudo.php";
 include "../_sys/logica_usuario.php";
 verificaUsuario();?>
-<form action="../_sys/adiciona-produto.php" class="form" method="post">
-	<table class="table">
+<form action="../_sys/adiciona-produto.php?action="cadastro" class="form" method="post">
+	<table class="table border">
         <tr>
             <td><label for="produto">Produto:</label>
                 <input class="form-control" type="text" name="nome_produto"></td>

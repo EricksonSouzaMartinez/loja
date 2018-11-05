@@ -12,7 +12,6 @@ include "../_sys/consulta_compra.php";
 }
 
 $compras = mostraCompra($conexao,$IDPessoa);
-$produtos = mostraProduto($conexao,$IDPessoa);
 
 ?>
 	<table class="table table-striped table-bordered">
@@ -24,17 +23,17 @@ $produtos = mostraProduto($conexao,$IDPessoa);
 	    </tr>
 
 <?php
-foreach ($produtos as $produto):
+
 foreach($compras as $compra):
 ?>
 	    <tr style="text-align: center">
 	        <td><?=$compra['IDCompra']?></td>
 	        <td><?=$compra['Nome_compra']?></td>
-	        <td><?=$produto['Produto_compra']?></td>
+	        <td><?=$compra['IDProduto']?></td>
 	        <td><?=$compra['quantidade_compra']?></td>
 	    </tr>
 <?php
-endforeach;
+
 endforeach;
 ?>
 </table>

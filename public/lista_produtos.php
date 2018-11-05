@@ -36,7 +36,7 @@ foreach($produtos as $produto):
         <td><?=$produto['Preco_Produto']?></td>
         <td><?=$produto['Quantidade_Produto']?></td>
         <td><?=$produto['categoria_nome'];?></td>
-        <td><?=($produto['usado']==1)?"sim":"Nao";?></td>
+        <td><?=($produto['usado']==1)?"Usado":"Novo";?></td>
         <td>
             <form action="../_sys/remove_produto.php" method="post">
                 <input name="id" hidden value="<?=$produto['IDProduto']?>">
