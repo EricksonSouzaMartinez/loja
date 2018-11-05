@@ -29,7 +29,7 @@ foreach($compras as $compra):
 	    <tr style="text-align: center">
 	        <td><?=$compra['IDCompra']?></td>
 	        <td><?=$compra['Nome_compra']?></td>
-	        <td><?=$compra['IDProduto']?></td>
+	        <td><?=$compra['produto_compra']?></td>
 	        <td><?=$compra['quantidade_compra']?></td>
 	    </tr>
 <?php

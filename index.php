@@ -25,10 +25,10 @@ mostraAlerta("danger");
 <form action="public/login.php" class="form_login" method="post">
 	<table class="table">
 		<tr>
-			<td>Nome:<input class="form-control" type="text" name="nome_pessoa"></td>
+			<td>Nome:<input id="nome" class="form-control" type="text" name="nome_pessoa"></td>
 		</tr>
 		<tr>
-			<td>Telefone:<input class="form-control" type="text" name="telefone_pessoa" maxlength="11"></td>
+			<td>Telefone:<input id="telefone" class="form-control" type="text" name="telefone_pessoa" maxlength="11"></td>
 		</tr>
 		<tr><td>
 			<button class="btn btn-primary">Logar</button></td>
