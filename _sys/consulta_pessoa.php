@@ -19,3 +19,8 @@ function deletePessoa($conexao,$id){
     $query="delete from Pessoas where IDPessoa = {$id}";
     return mysqli_query($conexao,$query);
 }
+function editaPessoa($conexao,$id,$nome,$telefone,$acesso)
+{
+    $query = "update Pessoas set Nome ='{$nome}',Telefone='{$telefone}',Acesso='{$acesso}' where IDPesspa ={$id}";
+    return mysqli_query($conexao, $query);
+}
