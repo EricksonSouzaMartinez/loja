@@ -1,6 +1,11 @@
 <?php include "cabecalho.php";
 include "../_sys/consulta_categoria.php";
-
+$usado = "";
+$produto =array(
+        "Nome_Produto" => "",
+        "Preco_Produto" => "",
+        "Quantidade_Produto" => "",
+        "categoria_id" => "1");
 $categorias= listaCategoria($conexao);
 ?>
 <h1 class="adiciona-pessoa">Novo Cadastro</h1>
@@ -9,36 +14,7 @@ $categorias= listaCategoria($conexao);
 include "../_sys/logica_usuario.php";
 verificaUsuario();?>
 <form action="../_sys/adiciona-produto.php?action="cadastro" class="form" method="post">
-	<table class="table border">
-        <tr>
-            <td><label for="produto">Produto:</label>
-                <input class="form-control" type="text" name="nome_produto"></td>
-        </tr>
-
-        <tr>
-            <td><label for="preco">Preco:</label>
-                <input class="form-control" type="text" name="preco_produto"></td>
-        </tr>
-
-        <tr>
-            <td><label for="quantidade">Quantidade:</label>
-                <input class="form-control" type="text" name="quantidade_produto"></td>
-        </tr>
-        <tr>
-            <td><label for="usado">Usado:</label>
-                <input type="checkbox" name="Usado" value="true"></td>
-        </tr>
-        <tr>
-            <td><label for="quantidade">Categorias:</label>
-                <select name="categoria_id" class="form-control">
-                <?php foreach ($categorias as $categoria): ?>
-                       <option  value="<?=$categoria['id']?>">
-                       <?=$categoria['Nome_categoria']?>
-                <?php endforeach;?>
-                       </option>>
-                </select>
-            </td>
-        </tr>
+<?php include ("Form_base.php");?>
         <tr>
             <td><button CLASS="btn">Cadastrar</button></td>
         </tr>
