@@ -2,6 +2,12 @@
 include "../conexao/conecta.php";
 
 function insereProduto($conexao,$nome_produto,$preco_produto,$quantidade_produto,$categoria,$usado){
+    $nome_produto= mysqli_real_escape_string($conexao, $nome_produto);
+    $preco_produto= mysqli_real_escape_string($conexao, $preco_produto);
+    $quantidade_produto= mysqli_real_escape_string($conexao, $quantidade_produto);
+    $categoria= mysqli_real_escape_string($conexao, $categoria);
+    $usado= mysqli_real_escape_string($conexao, $usado);
+
     $query = "insert into Produtos(Nome_Produto, Preco_Produto, Quantidade_Produto,categoria_id,usado)
  values ('{$nome_produto}',{$preco_produto},{$quantidade_produto},{$categoria},$usado)";
     return mysqli_query($conexao,$query);

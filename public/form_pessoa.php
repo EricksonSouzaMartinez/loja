@@ -4,24 +4,13 @@
 include "conteudo.php";
 include "../_sys/logica_usuario.php";
 verificaUsuario();
+
+$pessoa = array("Nome" => "", "Telefone" => "");
+$acessoC = "";
+$acessoF = "";
 ?>
 <form action="../_sys/adiciona_pessoa.php" class="form" method="post">
-
-	<table class="table">
-        <tr>
-		    <td><label for="nome">Nome:</label>
-                <input class="form-control" type="text" name="nome"></td>
-        </tr>
-        <tr>
-            <td><label for="telefone">Telefone:</label>
-                <input class="form-control" type="text" name="telefone" maxlength="11"></tr>
-        </tr>
-        <tr>
-            <td>Cliente:
-            <input type="radio" name="acesso" value="1">
-                Funcionario:
-			<input type="radio" name="acesso" value="2"></td>
-        </tr>
+    <?php include ("form_base_pessoa.php");?>
         <tr>
             <td><button class="btn">Cadastrar</button></td>
 

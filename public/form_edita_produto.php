@@ -14,7 +14,7 @@ include "../_sys/logica_usuario.php";
 verificaUsuario();?>
     <form action="../_sys/edita_produto.php" class="form" method="post">
         <input name="id" type="hidden" value="<?=$produto['IDProduto']?>">
-        <?php include ("Form_base.php");?>
+        <?php include("form_base_produto.php");?>
             <tr>
                 <td><button CLASS="btn">Alterar</button></td>
             </tr>

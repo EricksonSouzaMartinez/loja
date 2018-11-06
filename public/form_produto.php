@@ -14,7 +14,7 @@ $categorias= listaCategoria($conexao);
 include "../_sys/logica_usuario.php";
 verificaUsuario();?>
 <form action="../_sys/adiciona-produto.php?action="cadastro" class="form" method="post">
-<?php include ("Form_base.php");?>
+<?php include("form_base_produto.php");?>
         <tr>
             <td><button CLASS="btn">Cadastrar</button></td>
         </tr>
