@@ -20,17 +20,23 @@ $compras = mostraCompra($conexao,$IDPessoa);
 	        <td>Cliente</td>
 	        <td>Produto</td>
 	        <td>Quantidade</td>
+            <td>Valor</td>
+            <td>Data compra</td>
 	    </tr>
 
 <?php
 
 foreach($compras as $compra):
+
+
 ?>
 	    <tr style="text-align: center">
 	        <td><?=$compra['IDCompra']?></td>
 	        <td><?=$compra['Nome_compra']?></td>
 	        <td><?=$compra['produto_compra']?></td>
 	        <td><?=$compra['quantidade_compra']?></td>
+            <td><?=$compra['valor_compra']?></td>
+            <td><?=$compra['data_compra'];?></td>
 	    </tr>
 <?php
 

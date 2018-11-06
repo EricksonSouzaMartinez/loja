@@ -31,6 +31,7 @@ mostraAlerta("danger");
         <td>ESTADO</td>
         <td>QUANTIDADE</td>
         <td>COMPRAR</td>
+        <td>VALOR</td>
     </tr>
 
 <?php
@@ -41,20 +42,21 @@ foreach($produtos as $produto):
     ?>
     <tr style="text-align: center">
         <td><?=$produto['Nome_Produto']?></td>
-        <td><?=$produto['Preco_Produto']?></td>
+        <td id="preco_produto"><?=$produto['Preco_Produto']?></td>
         <td><?=$produto['Quantidade_Produto']?></td>
         <td><?=$produto['categoria_nome'];?></td>
         <td><?=($produto['usado']==1)?"sim":"Nao";?></td>
         <td>
             <form action="../public/escolher_produto.php" method="post">
-                <input type="text" size="3" name="contador" value="">
+                <input style="text-align: center" id="contador" type="text" size="3" name="contador" value="">
         </td>
-        <td>
+         <td>
                 <input type="hidden" name="IDPessoa" value="<?=$IDPessoa;?>">
                 <input name="IDProduto" hidden value="<?=$produto['IDProduto']?>">
                 <button class="btn btn-primary">Compar</button>
             </form>
         </td>
+        <td id="valortotal"></td>
         
     </tr>
 <?php
@@ -63,3 +65,4 @@ endforeach;
     </table>
 <?
 include "rodape.php";
+

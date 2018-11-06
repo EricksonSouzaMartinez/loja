@@ -29,6 +29,9 @@ function editaPessoa($conexao,$id,$nome,$telefone,$acesso)
 }
 
 function buscaID($conexao,$nome,$telefone){
+    $nome = mysqli_real_escape_string($conexao, $nome);
+    $telefone = mysqli_real_escape_string($conexao, $telefone);
+
     $query="SELECT IDPessoa FROM Pessoas WHERE Nome = '{$nome}' AND Telefone = {$telefone}";
     $resultado = mysqli_query($conexao,$query);
     var_dump($resultado);

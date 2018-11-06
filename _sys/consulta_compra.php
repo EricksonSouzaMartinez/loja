@@ -1,8 +1,8 @@
 <?php
 include "../conexao/conecta.php";
 
-function realizarCompra($conexao,$IDPessoa,$IDProduto,$contador){
-	$query= "INSERT INTO Compra (Pessoa_nome,IDProduto,Quantidade_Compra) VALUES ({$IDPessoa},{$IDProduto},{$contador})";
+function realizarCompra($conexao,$IDPessoa,$IDProduto,$contador,$valor){
+	$query= "INSERT INTO Compra (Pessoa_nome,IDProduto,Quantidade_Compra, data_compra,valor_compra) VALUES ({$IDPessoa},{$IDProduto},{$contador},current_date(), $valor)";
 	return mysqli_query($conexao,$query);
 }
 
