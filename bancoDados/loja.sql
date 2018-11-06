@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 20-Out-2018 às 13:18
--- Versão do servidor: 10.1.26-MariaDB
--- PHP Version: 7.1.9
+-- Tempo de geração: 06/11/2018 às 22:38
+-- Versão do servidor: 10.1.36-MariaDB
+-- Versão do PHP: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `loja`
+-- Banco de dados: `loja`
 --
 CREATE DATABASE IF NOT EXISTS `loja` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `loja`;
@@ -27,7 +27,7 @@ USE `loja`;
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Categorias`
+-- Estrutura para tabela `Categorias`
 --
 
 CREATE TABLE `Categorias` (
@@ -35,22 +35,45 @@ CREATE TABLE `Categorias` (
   `Nome_categoria` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Fazendo dump de dados para tabela `Categorias`
+--
+
+INSERT INTO `Categorias` (`id`, `Nome_categoria`) VALUES
+(3, 'Automovel'),
+(4, 'Doces'),
+(5, 'Salgados');
+
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Compra`
+-- Estrutura para tabela `Compra`
 --
 
 CREATE TABLE `Compra` (
   `IDCompra` int(11) NOT NULL,
-  `IDPessoa` int(11) NOT NULL,
-  `IDProduto` int(11) NOT NULL
+  `Pessoa_nome` int(11) NOT NULL,
+  `IDProduto` int(11) NOT NULL,
+  `quantidade_compra` int(11) NOT NULL,
+  `data_compra` date NOT NULL,
+  `valor_compra` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Fazendo dump de dados para tabela `Compra`
+--
+
+INSERT INTO `Compra` (`IDCompra`, `Pessoa_nome`, `IDProduto`, `quantidade_compra`, `data_compra`, `valor_compra`) VALUES
+(1, 7, 4, 1, '2018-11-06', '0.00'),
+(2, 7, 4, 8, '2018-11-06', '0.00'),
+(3, 7, 5, 1, '2018-11-06', '0.00'),
+(4, 7, 5, 1, '2018-11-06', '0.00'),
+(5, 7, 5, 1, '2018-11-06', '0.00');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Pessoas`
+-- Estrutura para tabela `Pessoas`
 --
 
 CREATE TABLE `Pessoas` (
@@ -60,10 +83,19 @@ CREATE TABLE `Pessoas` (
   `acesso` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Fazendo dump de dados para tabela `Pessoas`
+--
+
+INSERT INTO `Pessoas` (`IDPessoa`, `Nome`, `Telefone`, `acesso`) VALUES
+(7, 'Erickson', '67999999999', 1),
+(8, 'Renan', '67988888888', 1),
+(9, 'Renato', '67999999998', 2);
+
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `Produtos`
+-- Estrutura para tabela `Produtos`
 --
 
 CREATE TABLE `Produtos` (
@@ -76,65 +108,72 @@ CREATE TABLE `Produtos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Fazendo dump de dados para tabela `Produtos`
+--
+
+INSERT INTO `Produtos` (`IDProduto`, `Nome_Produto`, `Preco_Produto`, `Quantidade_Produto`, `categoria_id`, `usado`) VALUES
+(4, 'Fiat uno', '11400.00', 0, 3, 1),
+(5, 'Pao de mel', '5.00', 17, 4, 0),
+(6, 'Esfiha', '2.00', 3, 5, 0);
+
+--
+-- Índices de tabelas apagadas
 --
 
 --
--- Indexes for table `Categorias`
+-- Índices de tabela `Categorias`
 --
 ALTER TABLE `Categorias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `Compra`
+-- Índices de tabela `Compra`
 --
 ALTER TABLE `Compra`
   ADD PRIMARY KEY (`IDCompra`);
 
 --
--- Indexes for table `Pessoas`
+-- Índices de tabela `Pessoas`
 --
 ALTER TABLE `Pessoas`
   ADD PRIMARY KEY (`IDPessoa`),
   ADD UNIQUE KEY `Telefone` (`Telefone`);
 
 --
--- Indexes for table `Produtos`
+-- Índices de tabela `Produtos`
 --
 ALTER TABLE `Produtos`
   ADD PRIMARY KEY (`IDProduto`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas apagadas
 --
 
 --
--- AUTO_INCREMENT for table `Categorias`
+-- AUTO_INCREMENT de tabela `Categorias`
 --
 ALTER TABLE `Categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `Compra`
+-- AUTO_INCREMENT de tabela `Compra`
 --
 ALTER TABLE `Compra`
-  MODIFY `IDCompra` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `Pessoas`
+-- AUTO_INCREMENT de tabela `Pessoas`
 --
 ALTER TABLE `Pessoas`
-  MODIFY `IDPessoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `IDPessoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `Produtos`
+-- AUTO_INCREMENT de tabela `Produtos`
 --
 ALTER TABLE `Produtos`
-  MODIFY `IDProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `IDProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-alter table Compra ADD COLUMN quantidade_compra integer NOT null
