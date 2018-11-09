@@ -16,17 +16,23 @@ function insereProduto($conexao,$nome_produto,$preco_produto,$quantidade_produto
 function mostraProdutos($conexao){
     $produtos=array();
     $resultado=mysqli_query($conexao,"select p.*,c.Nome_categoria as categoria_nome from 
-Produtos as p join Categorias as c on c.id=p.categoria_id order by p.IDProduto asc ");
+Produtos as p join Categorias as c on c.ct_id=p.categoria_id where ct_ativo != 0 order by p.IDProduto asc ");
     while ($produto = mysqli_fetch_assoc($resultado)){
     array_push($produtos,$produto);
     }
     return $produtos;
 }
 
+function buscaValor($conexao,$IDProduto){
+    $query = "select Preco_Produto from Produtos where IDProduto={$IDProduto}";
+    $resultado = mysqli_query($conexao,$query);
+    return mysqli_fetch_assoc($resultado);
+}
+
 function mostraProdutosHaVenda($conexao){
     $produtos=array();
     $resultado=mysqli_query($conexao,"select p.*,c.Nome_categoria as categoria_nome from 
-Produtos as p join Categorias as c on c.id=p.categoria_id where p.  Quantidade_Produto != 0");
+Produtos as p join Categorias as c on c.ct_id=p.categoria_id where p.Quantidade_Produto != 0");
     while ($produto = mysqli_fetch_assoc($resultado)){
     array_push($produtos,$produto);
     }
@@ -52,24 +58,24 @@ function editaProduto($conexao,$id,$nome_produto,$preco_produto,$quantidade_prod
 }
 
 function escolherProduto($conexao,$id,$contador){
-    $query = quantidadeEscolhida($conexao,$id);
-        $valor = ($query['Quantidade_Produto']);
+        $query=quantidadeEscolhida($conexao,$id);
+        $estoque=($query['Quantidade_Produto']);
 
-    if ($contador>$valor) {
+        if($contador>$estoque) {
         $_SESSION['danger']="Escolha quantidade menor ou igual o estoque";
         header("Location:../public/produtoA_vender.php");
     }
 
-    if ($contador<=$valor){
-        $compra = $valor - $contador;
-        $resultado = "update Produtos set Quantidade_Produto = '{$compra}' WHERE IDProduto={$id}";
+    if ($contador<=$estoque){
+        $compra=$estoque - $contador;
+        $resultado="update Produtos set Quantidade_Produto = '{$compra}' WHERE IDProduto={$id}";
         return mysqli_query($conexao,$resultado);
     }    
     
 }
 
 function quantidadeEscolhida($conexao,$id){
-    $query = "SELECT Quantidade_Produto FROM Produtos WHERE IDProduto={$id}";
-    $resultado = mysqli_query($conexao,$query);
+    $query="SELECT Quantidade_Produto FROM Produtos WHERE IDProduto={$id}";
+    $resultado=mysqli_query($conexao,$query);
     return mysqli_fetch_assoc($resultado);
 }

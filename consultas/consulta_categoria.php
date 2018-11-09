@@ -3,7 +3,7 @@ include "../conexao/conecta.php";
 
 function listaCategoria($conexao){
     $categorias=array();
-    $query = "select * from Categorias";
+    $query = "select * from Categorias where ct_ativo =1";
     $resultado = mysqli_query($conexao,$query);
     while ($categoria = mysqli_fetch_assoc($resultado)){
         array_push($categorias,$categoria);
