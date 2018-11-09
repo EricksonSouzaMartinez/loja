@@ -22,6 +22,9 @@
 			<li>
 				<a href="../public/lista_compra.php">Lista de Compra</a>
 			</li>
+            <li>
+                <a href="../public/contato.php">Contato</a>
+            </li>
 			<li>
 				<a href="../public/logout.php">Deslogar</a>
 			</li>

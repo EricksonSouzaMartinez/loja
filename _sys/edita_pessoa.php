@@ -1,5 +1,5 @@
 <?php
-include "../_sys/consulta_pessoa.php";
+require_once "../consultas/consulta_pessoa.php";
 include "../_sys/logica_usuario.php";
 verificaUsuario();
 $id=$_POST['id'];

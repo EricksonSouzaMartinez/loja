@@ -1,6 +1,6 @@
 <?php
 include "cabecalho.php";
-include "../_sys/consulta_produto.php";
+require_once "../consultas/consulta_produto.php";
 include "../_sys/logica_usuario.php";
 include "../_sys/mostra_alerta.php";
 ?>

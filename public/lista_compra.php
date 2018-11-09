@@ -5,7 +5,7 @@ include "cabecalho.php";
 <?php
 include "menu.php";
 include "conteudo.php";
-include "../_sys/consulta_compra.php";
+require_once "../consultas/consulta_compra.php";
 
    if (isset($_COOKIE['pessoaacesso'])) {
       $IDPessoa = $_COOKIE['pessoaacesso'];

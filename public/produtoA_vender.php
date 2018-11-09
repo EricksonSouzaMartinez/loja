@@ -1,9 +1,9 @@
 <?php
 include "cabecalho.php";
-include "../_sys/consulta_produto.php";
+require_once "../consultas/consulta_produto.php";
 include "../_sys/logica_usuario.php";
 include "../_sys/mostra_alerta.php";
-include "../_sys/consulta_compra.php";
+require_once "../consultas/consulta_compra.php";
 ?>
 <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
     
@@ -47,17 +47,17 @@ foreach($produtos as $produto):
         <td><?=$produto['categoria_nome'];?></td>
         <td><?=($produto['usado']==1)?"sim":"Nao";?></td>
         <td>
-            <form action="../public/escolher_produto.php" method="post">
-                <input style="text-align: center" id="contador" type="text" size="3" name="contador" value="">
+            <form action="../_sys/escolher_produto.php" method="post">
+                <input style="text-align: center" id="contador" type="text" size="3" name="contador"  pattern="[0-9]{1,}" value="">
         </td>
          <td>
                 <input type="hidden" name="IDPessoa" value="<?=$IDPessoa;?>">
                 <input name="IDProduto" hidden value="<?=$produto['IDProduto']?>">
-                <button class="btn btn-primary">Compar</button>
+                <button class="btn btn-primary">Comprar</button>
             </form>
         </td>
         <td id="valortotal"></td>
-        
+
     </tr>
 <?php
 endforeach;

@@ -15,7 +15,7 @@ function insereProduto($conexao,$nome_produto,$preco_produto,$quantidade_produto
 
 function mostraProdutos($conexao){
     $produtos=array();
-    $resultado=mysqli_query($conexao,"select p.*,c.Nome_categoria as categoria_nome from 
+    $resultado=mysqli_query($conexao, "select p.*,c.Nome_categoria as categoria_nome from 
 Produtos as p join Categorias as c on c.ct_id=p.categoria_id where ct_ativo != 0 order by p.IDProduto asc ");
     while ($produto = mysqli_fetch_assoc($resultado)){
     array_push($produtos,$produto);
@@ -31,7 +31,7 @@ function buscaValor($conexao,$IDProduto){
 
 function mostraProdutosHaVenda($conexao){
     $produtos=array();
-    $resultado=mysqli_query($conexao,"select p.*,c.Nome_categoria as categoria_nome from 
+    $resultado=mysqli_query($conexao, "select p.*,c.Nome_categoria as categoria_nome from 
 Produtos as p join Categorias as c on c.ct_id=p.categoria_id where p.Quantidade_Produto != 0");
     while ($produto = mysqli_fetch_assoc($resultado)){
     array_push($produtos,$produto);

@@ -21,10 +21,10 @@
                 <td><label for="quantidade">Categorias:</label>
                     <select name="categoria_id" class="form-control">
                         <?php foreach ($categorias as $categoria):
-                        $essaEhcategoria = $produto['categoria_id'] == $categoria['id'];
+                        $essaEhcategoria = $produto['categoria_id'] == $categoria['ct_id'];
                         $selecao=$essaEhcategoria ? "selected='selected'": "";
                         ?>
-                        <option  value="<?=$categoria['id']?>" <?=$selecao?>>
+                        <option  value="<?=$categoria['ct_id']?>" <?=$selecao?>>
                             <?=$categoria['Nome_categoria']?>
                             <?php endforeach;?>
                         </option>>

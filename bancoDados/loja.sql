@@ -39,7 +39,7 @@ CREATE TABLE `Categorias` (
 -- Fazendo dump de dados para tabela `Categorias`
 --
 
-INSERT INTO `Categorias` (`id`, `Nome_categoria`) VALUES
+INSERT INTO `Categorias` (ct_id, `Nome_categoria`) VALUES
 (3, 'Automovel'),
 (4, 'Doces'),
 (5, 'Salgados');
@@ -124,7 +124,7 @@ INSERT INTO `Produtos` (`IDProduto`, `Nome_Produto`, `Preco_Produto`, `Quantidad
 -- Índices de tabela `Categorias`
 --
 ALTER TABLE `Categorias`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (ct_id);
 
 --
 -- Índices de tabela `Compra`

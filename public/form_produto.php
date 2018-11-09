@@ -1,5 +1,5 @@
 <?php include "cabecalho.php";
-include "../_sys/consulta_categoria.php";
+require_once "../consultas/consulta_categoria.php";
 $usado = "";
 $produto =array(
         "Nome_Produto" => "",

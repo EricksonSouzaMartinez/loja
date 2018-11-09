@@ -1,5 +1,5 @@
 <?php
-include "../_sys/consulta_pessoa.php";
+require_once "../consultas/consulta_pessoa.php";
 include "cabecalho.php";?>
     <h1 class="adiciona-pessoa">Lista de Pessoas</h1>
 <?php

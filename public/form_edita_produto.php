@@ -1,6 +1,6 @@
 <?php include "cabecalho.php";
-include "../_sys/consulta_categoria.php";
-include "../_sys/consulta_produto.php";
+require_once "../consultas/consulta_categoria.php";
+require_once "../consultas/consulta_produto.php";
 
 $categorias= listaCategoria($conexao);
 $id=$_POST['id'];

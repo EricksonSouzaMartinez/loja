@@ -1,5 +1,5 @@
 <?php
-include "consulta_produto.php";
+require_once "../consultas/consulta_produto.php";
 include "../_sys/logica_usuario.php";
 verificaUsuario();
 

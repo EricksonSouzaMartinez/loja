@@ -2,7 +2,7 @@
     <h1 class="adiciona-pessoa">Novo Cadastro</h1>
 <?php include "menu.php";?>
 <?php include "conteudo.php";
-include "../_sys/consulta_pessoa.php";
+require_once "../consultas/consulta_pessoa.php";
 include "../_sys/logica_usuario.php";
 verificaUsuario();
 $id=$_POST['id'];
