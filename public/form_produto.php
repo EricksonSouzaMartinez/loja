@@ -16,7 +16,7 @@ verificaUsuario();?>
 <form action="../_sys/adiciona-produto.php?action="cadastro" class="form" method="post">
 <?php include("form_base_produto.php");?>
         <tr>
-            <td><button CLASS="btn">Cadastrar</button></td>
+            <td><button CLASS="btn btn-primary">Cadastrar</button></td>
         </tr>
 	</table>
     <a href="form_categoria.php">Nova Categoria</a>

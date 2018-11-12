@@ -4,12 +4,10 @@
         <td><label for="nome">Nome:</label>
             <input class="form-control" type="text" name="nome" value="<?=$pessoa['Nome']?>"></td>
     </tr>
-
     <tr>
         <td><label for="telefone">Telefone:</label>
-            <input class="form-control" type="text" name="telefone" maxlength="11" value="<?=$pessoa['Telefone']?>"></tr>
+            <input class="form-control" type="text" name="telefone" maxlength="11" value="<?=$pessoa['Telefone']?>">
     </tr>
-
     <tr>
         <td>Cliente:
             <input type="radio" name="acesso" <?=$acessoC?>value="1">

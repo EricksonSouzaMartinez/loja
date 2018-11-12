@@ -1,3 +1,4 @@
+<!--
 </div>
 	<div class="menu">
 		<ul>
@@ -30,4 +31,21 @@
 			</li>
 
 		</ul>
+</div>
+-->
+
+<?php include "../consultas/consulta_submenu.php";?>
+</div>
+<div class="menu">
+	<ul>
+		<?php
+		$subsmenu = mostraSubMenu($conexao);
+		var_dump($subsmenu);
+		foreach ($subsmenu as $submenu):?>
+			<li>
+				<a href="<?=$submenu['sm_uri']?>"><?=$submenu['sm_nome']?></a>
+			</li>
+		<?php endforeach;
+		?>
+	</ul>
 </div>

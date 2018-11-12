@@ -39,8 +39,8 @@ Produtos as p join Categorias as c on c.ct_id=p.categoria_id where p.Quantidade_
     return $produtos;
 }
 
-function deleteProduto($conexao,$id){
-    $query="delete from Produtos where IDProduto = {$id}";
+function inativaProduto($conexao,$id){
+    $query="UPDATE Produtos set pr_ativo = 0 where IDProduto = {$id}";
     return mysqli_query($conexao,$query);
 }
 
@@ -60,12 +60,10 @@ function editaProduto($conexao,$id,$nome_produto,$preco_produto,$quantidade_prod
 function escolherProduto($conexao,$id,$contador){
         $query=quantidadeEscolhida($conexao,$id);
         $estoque=($query['Quantidade_Produto']);
-
         if($contador>$estoque) {
         $_SESSION['danger']="Escolha quantidade menor ou igual o estoque";
         header("Location:../public/produtoA_vender.php");
     }
-
     if ($contador<=$estoque){
         $compra=$estoque - $contador;
         $resultado="update Produtos set Quantidade_Produto = '{$compra}' WHERE IDProduto={$id}";

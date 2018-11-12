@@ -16,12 +16,12 @@ $compras = mostraCompra($conexao,$IDPessoa);
 ?>
 	<table class="table table-striped table-bordered">
 		<tr style="text-align: center">
-	        <td>Numero Compra</td>
-	        <td>Cliente</td>
-	        <td>Produto</td>
-	        <td>Quantidade</td>
-            <td>Valor</td>
-            <td>Data compra</td>
+	        <td>NUMERO VENDA</td>
+	        <td>CLIENTE</td>
+	        <td>PRODUTO</td>
+	        <td>QUANTIDADE</td>
+            <td>VALOR</td>
+            <td>DATA COMPRA</td>
 	    </tr>
 
 <?php

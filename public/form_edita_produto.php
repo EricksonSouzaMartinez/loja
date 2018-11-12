@@ -16,7 +16,7 @@ verificaUsuario();?>
         <input name="id" type="hidden" value="<?=$produto['IDProduto']?>">
         <?php include("form_base_produto.php");?>
             <tr>
-                <td><button CLASS="btn">Alterar</button></td>
+                <td><button CLASS="btn btn-primary">Alterar</button></td>
             </tr>
         </table>
     </form>

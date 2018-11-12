@@ -40,13 +40,13 @@ foreach($produtos as $produto):
         <td>
             <form action="../_sys/remove_produto.php" method="post">
                 <input name="id" hidden value="<?=$produto['IDProduto']?>">
-                <button class="btn-danger">Remover</button>
+                <button class="btn btn-danger">Inativa</button>
             </form>
         </td>
         <td>
             <form action="../public/form_edita_produto.php" method="post">
                 <input name="id" hidden value="<?=$produto['IDProduto']?>">
-                <button class="btn-dark">Editar</button>
+                <button class="btn btn-primary">Editar</button>
             </form>
         </td>
 

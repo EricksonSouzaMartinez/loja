@@ -17,7 +17,7 @@ $acessoF = ($pessoa['acesso']==2)?"checked='checked'":"";
      <?php include ("form_base_pessoa.php");?>
 
             <tr>
-                <td><button class="btn">Alterar</button></td>
+                <td><button class="btn btn-primary">Alterar</button></td>
 
             </tr>
         </table>

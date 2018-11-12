@@ -4,7 +4,7 @@ include "../_sys/logica_usuario.php";
 verificaUsuario();
 $id=$_POST['id'];
 //var_dump($id);
-if (deleteProduto($conexao,$id)){
+if (inativaProduto($conexao,$id)){
     header("Location:../public/lista_produtos.php?removido=1");
     die();
 }else{

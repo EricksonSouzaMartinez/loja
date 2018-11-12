@@ -10,15 +10,15 @@ function inserePessoa($conexao,$nome,$telefone,$acesso)
 
 function mostraPessoa($conexao){
     $pessoas=array();
-    $resultado=mysqli_query($conexao,"select * from Pessoas");
+    $resultado=mysqli_query($conexao,"select * from Pessoas WHERE ps_ativo = 1");
     while ($pessoa = mysqli_fetch_assoc($resultado)){
         array_push($pessoas,$pessoa);
     }
     return $pessoas;
 }
 
-function deletePessoa($conexao,$id){
-    $query="delete from Pessoas where IDPessoa = {$id}";
+function inativarPessoa($conexao,$id,$ativo){
+    $query="update Pessoas set ps_ativo = {$ativo} where IDPessoa = {$id}";
     return mysqli_query($conexao,$query);
 }
 
