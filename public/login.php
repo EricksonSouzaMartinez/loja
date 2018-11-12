@@ -13,6 +13,6 @@ if ($login == null){
 	logaUsuario($login['Nome']);
 	$_SESSION['success']="";
 	setcookie("pessoaacesso",$pessoaAcesso['IDPessoa']);
-	header("Location:../index.php");
+	header("Location:../public/lista_compra.php");
 }
 die();

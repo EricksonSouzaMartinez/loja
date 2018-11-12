@@ -1,42 +1,13 @@
-
 </div>
-	<div class="menu">
-		<ul>
+<div class="menu">
+	<ul>
+        <?php include "../consultas/consulta_submenu.php";
+		$subsmenu = mostraSubMenu($conexao);
+		foreach ($subsmenu as $submenu):?>
 			<li>
-				<a href="../index.php">Home</a>
+				<a href="<?=$submenu['sm_uri']?>"><?=$submenu['sm_nome']?></a>
 			</li>
-			<li>
-				<a href="../public/form_pessoa.php">Cadastro Pessoa</a>
-			</li>
-			<li>
-				<a href="../public/lista_pessoas.php">Lista de Pessoas</a>
-			</li>
-			<li>
-				<a href="../public/form_produto.php">Cadastro Produtos</a>
-			</li>
-			<li>
-				<a href="../public/lista_produtos.php">Produtos</a>
-			</li>
-			<li>
-				<a href="../public/produtoA_vender.php">Lista Produtos</a>
-			</li>
-			<li>
-				<a href="../public/lista_compra.php">Lista de Compra</a>
-			</li>
-            <li>
-                <a href="../public/contato.php">Contato</a>
-            </li>
-			<li>
-				<a href="../public/logout.php">Deslogar</a>
-			</li>
-
-		</ul>
+		<?php endforeach;
+		?>
+	</ul>
 </div>
-
-
-
-<!--
-
-
-
--->
