@@ -11,7 +11,7 @@ function mostraCompra($conexao,$IDPessoa){
 	$query = "SELECT cp.*,ps.Nome as Nome_compra, pr.Nome_Produto as produto_compra FROM compra as cp 
        left JOIN pessoas as ps ON ps.IDPessoa = cp.Pessoa_nome
        LEFT JOIN produtos as pr ON pr.IDProduto = cp.IDProduto 
-       WHERE ps.acesso = 0 order BY cp.IDCompra desc";
+       WHERE ps.IDPessoa = {$IDPessoa} order BY cp.IDCompra desc";
 	$resultado = mysqli_query($conexao,$query);
 	while($compra =mysqli_fetch_assoc($resultado)){
 		array_push($compras,$compra);

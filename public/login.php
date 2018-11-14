@@ -5,7 +5,7 @@ $nome=$_POST['nome_pessoa'];
 $telefone=$_POST['telefone_pessoa'];
 $login = loginPessoa($conexao,$nome,$telefone);
 $pessoaAcesso = buscaID($conexao,$nome,$telefone);
-var_dump($pessoaAcesso);
+//var_dump($pessoaAcesso);
 if ($login == null){
 	$_SESSION['danger']="Pessoa ou Telefone invalido.";
 	header("Location:../index.php");

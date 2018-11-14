@@ -40,29 +40,30 @@ $produtos= mostraProdutosHaVenda($conexao);
 
 foreach($produtos as $produto):
     ?>
-    <tr style="text-align: center">
+    <tr style="text-align: center" id="produto" class="produto<?=$produto['IDProduto']?>">
         <td><?=$produto['Nome_Produto']?></td>
         <td id="preco_produto"><?=$produto['Preco_Produto']?></td>
         <td><?=$produto['Quantidade_Produto']?></td>
         <td><?=$produto['categoria_nome'];?></td>
         <td><?=($produto['usado']==1)?"sim":"Nao";?></td>
         <td>
-            <form action="../_sys/escolher_produto.php" method="post">
-                <input style="text-align: center" id="contador" type="text" size="3" name="contador"  pattern="[0-9]{1,}" value="">
+            <form id="formContador" action="../_sys/escolher_produto.php" method="post">
+               <input style="text-align: center" id="idContador" type="text" size="3" name="nameContador"  value="">
         </td>
          <td>
                 <input type="hidden" name="IDPessoa" value="<?=$IDPessoa;?>">
                 <input name="IDProduto" hidden value="<?=$produto['IDProduto']?>">
-                <button class="btn btn-primary">Comprar</button>
+                <button id="compra" class="btn btn-primary" onclick="">Comprar</button>
             </form>
         </td>
-        <td id="valortotal"></td>
-
+        <td id="valortotal">0</td>
     </tr>
+
 <?php
 endforeach;
 ?>
     </table>
+<script src="../js/newJS/produtosA_vender.js"></script>
 <?
 include "rodape.php";
 

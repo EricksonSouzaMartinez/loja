@@ -1,5 +1,5 @@
 <?php
-require_once ("../conexao/conecta.php");
+require_once "../conexao/conecta.php";
 
 function mostraSubMenu($conexao){
     $subsmenu=array();

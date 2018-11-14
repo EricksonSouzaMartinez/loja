@@ -2,7 +2,7 @@
 require_once "../consultas/consulta_produto.php";
 require_once "../consultas/consulta_compra.php";
 $IDProduto=$_POST['IDProduto'];
-$contador=$_POST['contador'];
+$contador=$_POST['nameContador'];
 $IDPessoa =$_POST['IDPessoa'];
 if(escolherProduto($conexao,$IDProduto,$contador)){
     if (buscaProduto($conexao,$IDProduto)){

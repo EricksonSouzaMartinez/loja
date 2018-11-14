@@ -32,7 +32,7 @@ foreach($compras as $compra):
 ?>
 	    <tr style="text-align: center">
 	        <td><?=$compra['IDCompra']?></td>
-	        <td><?=$compra['Nome_compra']?></td>
+	        <td id="nomepessoa"><?=$compra['Nome_compra']?></td>
 	        <td><?=$compra['produto_compra']?></td>
 	        <td><?=$compra['quantidade_compra']?></td>
             <td><?=$compra['valor_compra']?></td>
@@ -43,3 +43,5 @@ foreach($compras as $compra):
 endforeach;
 ?>
 </table>
+<script src="../js/newJS/lista_compra.js">
+</script>

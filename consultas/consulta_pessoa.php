@@ -3,14 +3,14 @@ include "../conexao/conecta.php";
 
 function inserePessoa($conexao,$nome,$telefone,$acesso)
 {
-    $query = "insert into pessoas (Nome,Telefone,Acesso) values('{$nome}','{$telefone}','{$acesso}')";
+    $query = "insert into Pessoas (Nome,Telefone,Acesso) values('{$nome}','{$telefone}','{$acesso}')";
 
     return mysqli_query($conexao, $query);
 }
 
 function mostraPessoa($conexao){
     $pessoas=array();
-    $resultado=mysqli_query($conexao,"select * from pessoas WHERE ps_ativo = 1");
+    $resultado=mysqli_query($conexao,"select * from Pessoas WHERE ps_ativo = 1");
     while ($pessoa = mysqli_fetch_assoc($resultado)){
         array_push($pessoas,$pessoa);
     }
