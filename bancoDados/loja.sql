@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 10-Nov-2018 às 05:38
+-- Generation Time: 16-Nov-2018 às 04:59
 -- Versão do servidor: 10.1.36-MariaDB
 -- versão do PHP: 7.2.11
 
@@ -40,9 +40,10 @@ CREATE TABLE `categorias` (
 -- Extraindo dados da tabela `categorias`
 --
 
-INSERT INTO `categorias` (`ct_id`, `ct_ativo`, `Nome_categoria`) VALUES
+INSERT INTO `categorias` VALUES
 (1, 1, 'Salgados'),
-(2, 1, 'Doces');
+(2, 1, 'Doces'),
+(3, 1, 'Automovel');
 
 -- --------------------------------------------------------
 
@@ -59,17 +60,6 @@ CREATE TABLE `compra` (
   `data_compra` date NOT NULL,
   `valor_compra` decimal(10,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `compra`
---
-
-INSERT INTO `compra` (`IDCompra`, `cp_ativo`, `Pessoa_nome`, `IDProduto`, `quantidade_compra`, `data_compra`, `valor_compra`) VALUES
-(1, 1, 7, 2, 1, '2018-11-10', '2.00'),
-(2, 1, 7, 1, 2, '2018-11-10', '4.00'),
-(3, 1, 7, 2, 3, '2018-11-10', '6.00'),
-(4, 1, 9, 2, 2, '2018-11-10', '4.00'),
-(5, 1, 9, 1, 1, '2018-11-10', '2.00');
 
 -- --------------------------------------------------------
 
@@ -89,10 +79,22 @@ CREATE TABLE `pessoas` (
 -- Extraindo dados da tabela `pessoas`
 --
 
-INSERT INTO `pessoas` (`IDPessoa`, `ps_ativo`, `Nome`, `Telefone`, `acesso`) VALUES
-(7, 1, 'Erickson', '67999999999', 1),
+INSERT INTO `pessoas` VALUES
+(7, 1, 'Erickson', '67999999999', 2),
 (8, 1, 'Renan', '67988888888', 1),
-(9, 1, 'Junior', '67989898989', 0);
+(9, 1, 'Renato', '67989898989', 1),
+(10, 1, 'Ana green', '67988989891', 1),
+(11, 1, 'Jean', '67940546450', 1),
+(12, 1, 'Iohan', '67990454640', 1),
+(13, 1, 'Max Almeida', '67944604046', 1),
+(14, 1, 'Roberto', '67999904546', 1),
+(15, 1, 'Ana Rocha', '67984047848', 1),
+(16, 1, 'Janaina Martinez', '67998406848', 1),
+(17, 1, 'Kelvis', '67999948405', 1),
+(18, 1, 'Vagner', '67998404984', 1),
+(19, 1, 'Guilherme benites', '67984654016', 1),
+(20, 1, 'Rafael', '67984098489', 1),
+(21, 1, 'Roberta', '67977777777', 1);
 
 -- --------------------------------------------------------
 
@@ -110,13 +112,37 @@ CREATE TABLE `produtos` (
   `usado` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Extraindo dados da tabela `produtos`
+-- Estrutura da tabela `ps_funcao`
 --
 
-INSERT INTO `produtos` (`IDProduto`, `pr_ativo`, `Nome_Produto`, `Preco_Produto`, `Quantidade_Produto`, `categoria_id`, `usado`) VALUES
-(1, 1, 'Risole', '2.00', 5, 1, 0),
-(2, 1, 'Esfiha', '2.00', 1, 1, 0);
+CREATE TABLE `ps_funcao` (
+  `psf_id` int(11) NOT NULL,
+  `psf_submenu_id` int(11) NOT NULL,
+  `psf_ativo` int(11) NOT NULL,
+  `psf_acesso` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `ps_funcao`
+--
+
+INSERT INTO `ps_funcao` VALUES
+(1, 6, 1, 1),
+(2, 7, 1, 1),
+(3, 8, 1, 1),
+(4, 9, 1, 1),
+(5, 2, 1, 2),
+(6, 3, 1, 2),
+(7, 4, 1, 2),
+(8, 5, 1, 2),
+(9, 6, 1, 2),
+(10, 7, 1, 2),
+(11, 8, 1, 2),
+(12, 9, 1, 2),
+(13, 3, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -135,8 +161,8 @@ CREATE TABLE `sub_menu` (
 -- Extraindo dados da tabela `sub_menu`
 --
 
-INSERT INTO `sub_menu` (`sm_id`, `sm_ativo`, `sm_nome`, `sm_uri`) VALUES
-(1, 1, 'Home', '../index.php'),
+INSERT INTO `sub_menu` VALUES
+(1, 0, 'Home', '../index.php'),
 (2, 1, 'Cadastro Pessoa', '../public/form_pessoa.php'),
 (3, 1, 'Lista de Pessoas', '../public/lista_pessoas.php'),
 (4, 1, 'Cadastro Produtos', '../public/form_produto.php'),
@@ -176,6 +202,12 @@ ALTER TABLE `produtos`
   ADD PRIMARY KEY (`IDProduto`);
 
 --
+-- Indexes for table `ps_funcao`
+--
+ALTER TABLE `ps_funcao`
+  ADD PRIMARY KEY (`psf_id`);
+
+--
 -- Indexes for table `sub_menu`
 --
 ALTER TABLE `sub_menu`
@@ -189,31 +221,37 @@ ALTER TABLE `sub_menu`
 -- AUTO_INCREMENT for table `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `ct_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ct_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `compra`
 --
 ALTER TABLE `compra`
-  MODIFY `IDCompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `IDCompra` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `pessoas`
 --
 ALTER TABLE `pessoas`
-  MODIFY `IDPessoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `IDPessoa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `produtos`
 --
 ALTER TABLE `produtos`
-  MODIFY `IDProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `IDProduto` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ps_funcao`
+--
+ALTER TABLE `ps_funcao`
+  MODIFY `psf_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `sub_menu`
 --
 ALTER TABLE `sub_menu`
-  MODIFY `sm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `sm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

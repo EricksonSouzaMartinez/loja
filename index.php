@@ -8,9 +8,16 @@ include "_sys/mostra_alerta.php";
 	</head>
 		<h1 class="principal">Nossa Loja</h1>
 	</div>
-<?php
+<?php 
+
 if(usuarioEstalogado()){
+include "public/menu.php";
+include "public/conteudo.php";
+mostraAlerta("success");
 mostraAlerta("danger");
+?>
+		<p class="alert-success">Voce esta logado <?=usuariologado();?>.</p>
+<?php
 }else{
 
 ?>

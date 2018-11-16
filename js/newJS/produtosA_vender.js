@@ -1,7 +1,5 @@
 var produtos = document.querySelectorAll("#produto");
-
 for (var i = 0; i < produtos.length; i++){
-    var elemento = 0;
     var elemento = produtos[i].querySelector("#idContador");
     var preco = parseInt(produtos[i].querySelector("#preco_produto").textContent);
     var valortotal = produtos[i].querySelector("#valortotal");

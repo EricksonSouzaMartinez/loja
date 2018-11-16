@@ -5,7 +5,7 @@ include '../consultas/consulta_submenu.php';
 <div class="menu">
 	<ul>
 		<?php
-		$subsmenu = mostraSubMenu($conexao);
+		$subsmenu = mostraSubMenu($conexao,$PessoaAcesso);
 		//var_dump($subsmenu);
 		foreach ($subsmenu as $submenu):?>
 			<li>

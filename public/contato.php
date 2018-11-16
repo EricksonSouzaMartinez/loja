@@ -1,4 +1,4 @@
-<?= require_once "cabecalho.php";?>
+<?php require_once "cabecalho.php";?>
 <h1>Enviar Email</h1>
 <?php
 require_once "menu.php";

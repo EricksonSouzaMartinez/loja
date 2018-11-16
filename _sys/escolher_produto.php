@@ -4,6 +4,8 @@ require_once "../consultas/consulta_compra.php";
 $IDProduto=$_POST['IDProduto'];
 $contador=$_POST['nameContador'];
 $IDPessoa =$_POST['IDPessoa'];
+
+var_dump($contador,$IDPessoa,$IDProduto);
 if(escolherProduto($conexao,$IDProduto,$contador)){
     if (buscaProduto($conexao,$IDProduto)){
     $valores = buscaValor($conexao,$IDProduto);

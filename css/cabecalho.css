@@ -14,7 +14,6 @@
 	background-color: #eae4ed;
 }
 .corpo{
-	height: 100%;
 	position: fixed;
 	margin-left: 15%;
 	width: 85%;
@@ -23,7 +22,7 @@
 }
 
 .form_login{
-	margin-top: 5%;
+	margin-top: 2%;
 	height: 100%;
 	position: fixed;
 	margin-left: 35%;
@@ -31,7 +30,7 @@
 	background-color: white;
 }
 .form{
-	margin-top: 5%;
+	margin-top: 2%;
 	height: 100%;
 	position: fixed;
 	margin-left: 20%;

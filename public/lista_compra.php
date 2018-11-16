@@ -6,12 +6,7 @@ include "cabecalho.php";
 include "menu.php";
 include "conteudo.php";
 require_once "../consultas/consulta_compra.php";
-
-   if (isset($_COOKIE['pessoaacesso'])) {
-      $IDPessoa = $_COOKIE['pessoaacesso'];
-}
-
-$compras = mostraCompra($conexao,$IDPessoa);
+$compras = mostraCompra($conexao,$IDPessoa,$PessoaAcesso);
 
 ?>
 	<table class="table table-striped table-bordered">

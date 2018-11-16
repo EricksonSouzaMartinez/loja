@@ -24,7 +24,7 @@ mostraAlerta("danger");
             <td>EDIÇÃO</td>
         </tr>
 <?php
-$pessoas= mostraPessoa($conexao);
+$pessoas= mostraPessoa($conexao,$IDPessoa,$PessoaAcesso);
 foreach($pessoas as $pessoa):
     ?>
     <tr style="text-align: center">

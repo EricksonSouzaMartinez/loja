@@ -31,7 +31,7 @@ mostraAlerta("danger");
         <td>ESTADO</td>
         <td>QUANTIDADE</td>
         <td>COMPRAR</td>
-        <td>VALOR</td>
+        <td>SIMULAR VALOR</td>
     </tr>
 
 <?php
@@ -40,25 +40,25 @@ $produtos= mostraProdutosHaVenda($conexao);
 
 foreach($produtos as $produto):
     ?>
-    <tr style="text-align: center" id="produto" class="produto<?=$produto['IDProduto']?>">
+    <tr style="text-align: center" id="produto">
         <td><?=$produto['Nome_Produto']?></td>
         <td id="preco_produto"><?=$produto['Preco_Produto']?></td>
         <td><?=$produto['Quantidade_Produto']?></td>
         <td><?=$produto['categoria_nome'];?></td>
         <td><?=($produto['usado']==1)?"sim":"Nao";?></td>
         <td>
-            <form id="formContador" action="../_sys/escolher_produto.php" method="post">
-               <input style="text-align: center" id="idContador" type="text" size="3" name="nameContador"  value="">
+            <form action="../public/venda.php" method="post">
+                <input style="text-align: center" id="idContador" type="text" size="3" name="nameContador"  pattern="[0-9]{1,}" value="">
         </td>
          <td>
-                <input type="hidden" name="IDPessoa" value="<?=$IDPessoa;?>">
-                <input name="IDProduto" hidden value="<?=$produto['IDProduto']?>">
-                <button id="compra" class="btn btn-primary" onclick="">Comprar</button>
-            </form>
+             <input type="hidden" name="IDPessoa" value="<?=$IDPessoa;?>">
+                 <input name="id" hidden value="<?=$produto['IDProduto']?>">
+                 <button class="btn btn-primary">Escolher</button>
+             </form>
         </td>
         <td id="valortotal">0</td>
-    </tr>
 
+    </tr>
 <?php
 endforeach;
 ?>

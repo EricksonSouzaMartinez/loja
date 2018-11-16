@@ -32,20 +32,20 @@ $produtos= mostraProdutos($conexao);
 foreach($produtos as $produto):
     ?>
     <tr style="text-align: center">
-        <td><?=$produto['Nome_Produto']?></td>
-        <td><?=$produto['Preco_Produto']?></td>
-        <td><?=$produto['Quantidade_Produto']?></td>
-        <td><?=$produto['categoria_nome'];?></td>
-        <td><?=($produto['usado']==1)?"Usado":"Novo";?></td>
+        <td><?=$produto->nome_produto?></td>
+        <td><?=$produto->preco_produto?></td>
+        <td><?=$produto->quantidade_produto?></td>
+        <td><?=$produto->categoria->nome;?></td>
+        <td><?=(($produto->usado)==1)?"Usado":"Novo";?></td>
         <td>
             <form action="../_sys/remove_produto.php" method="post">
-                <input name="id" hidden value="<?=$produto['IDProduto']?>">
+                <input name="id" hidden value="<?=$produto->id?>">
                 <button class="btn btn-danger">Inativa</button>
             </form>
         </td>
         <td>
             <form action="../public/form_edita_produto.php" method="post">
-                <input name="id" hidden value="<?=$produto['IDProduto']?>">
+                <input name="id" hidden value="<?=$produto->id?>">
                 <button class="btn btn-primary">Editar</button>
             </form>
         </td>
