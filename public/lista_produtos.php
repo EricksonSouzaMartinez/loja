@@ -1,12 +1,12 @@
 <?php
-include "cabecalho.php";
+require_once "cabecalho.php";
 require_once "../consultas/consulta_produto.php";
 include "../_sys/logica_usuario.php";
 include "../_sys/mostra_alerta.php";
 ?>
 <h1 class="adiciona-pessoa">Produtos Cadastrados</h1>
 <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
-<?php 
+<?php
 include "menu.php";
 include "conteudo.php";
 
@@ -28,7 +28,7 @@ mostraAlerta("danger");
 
 
 <?php
-$produtos= mostraProdutos($conexao);
+$produtos=mostraProdutos($conexao);
 foreach($produtos as $produto):
     ?>
     <tr style="text-align: center">
@@ -56,4 +56,4 @@ endforeach;
 ?>
     </table>
 <?
-include "rodape.php";
+require_once "rodape.php";

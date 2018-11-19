@@ -1,17 +1,12 @@
-<?php
-include "cabecalho.php";
+<?php require_once "cabecalho.php";
 require_once "../consultas/consulta_produto.php";
-include "../_sys/logica_usuario.php";
-include "../_sys/mostra_alerta.php";
-require_once "../consultas/consulta_compra.php";
-?>
+require_once "../_sys/logica_usuario.php";
+require_once "../_sys/mostra_alerta.php";
+require_once "../consultas/consulta_compra.php";?>
 <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
-    
 <h1 class="adiciona-pessoa">Produtos ha Venda</h1>
-
-<?php 
-include "menu.php";
-include "conteudo.php";
+<?php require_once "menu.php";
+require_once "conteudo.php";
 
 verificaUsuario();
 mostraAlerta("success");
@@ -36,23 +31,23 @@ mostraAlerta("danger");
 
 <?php
 
-$produtos= mostraProdutosHaVenda($conexao);
+$produtos=mostraProdutosHaVenda($conexao);
 
 foreach($produtos as $produto):
     ?>
     <tr style="text-align: center" id="produto">
-        <td><?=$produto['Nome_Produto']?></td>
-        <td id="preco_produto"><?=$produto['Preco_Produto']?></td>
-        <td><?=$produto['Quantidade_Produto']?></td>
-        <td><?=$produto['categoria_nome'];?></td>
-        <td><?=($produto['usado']==1)?"sim":"Nao";?></td>
+        <td><?=$produto->nome_produto?></td>
+        <td id="preco_produto"><?=$produto->preco_produto?></td>
+        <td><?=$produto->quantidade_produto?></td>
+        <td><?=$produto->categoria->nome;?></td>
+        <td><?=(($produto->usado)==1)?"sim":"Nao";?></td>
         <td>
             <form action="../public/venda.php" method="post">
                 <input style="text-align: center" id="idContador" type="text" size="3" name="nameContador"  pattern="[0-9]{1,}" value="">
         </td>
          <td>
-             <input type="hidden" name="IDPessoa" value="<?=$IDPessoa;?>">
-                 <input name="id" hidden value="<?=$produto['IDProduto']?>">
+             <input type="hidden" name="IDPessoa" value="<?=$produto->IDPessoa;?>">
+                 <input name="id" hidden value="<?=$produto->id?>">
                  <button class="btn btn-primary">Escolher</button>
              </form>
         </td>
@@ -65,5 +60,5 @@ endforeach;
     </table>
 <script src="../js/newJS/produtosA_vender.js"></script>
 <?
-include "rodape.php";
+require_once "rodape.php";
 

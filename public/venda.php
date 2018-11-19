@@ -2,25 +2,27 @@
 require_once "../consultas/consulta_categoria.php";
 require_once "../consultas/consulta_produto.php";
 require_once "../consultas/consulta_pessoa.php";
+
+$produto =new Produto();
 $quantidade=$_POST['nameContador'];
 $categorias= listaCategoria($conexao);
-$id=$_POST['id'];
-$produto=buscaProduto($conexao,$id);
-$usado = $produto['usado'] ? "checked='checked'" : "";
+
+$produto->id=$_POST['id'];
+$produto=buscaProduto($conexao,$produto);
+$usado = ($produto->usado) ? "checked='checked'" : "";
 
 $pessoas = mostraPessoa($conexao,$IDPessoa,$PessoaAcesso);
 
-
 ?>
     <h1 class="adiciona-pessoa">Comprar</h1>
-<?php include "menu.php";?>
-<?php include "conteudo.php";
-include "../_sys/logica_usuario.php";
+<?php require_once "menu.php";
+require_once "conteudo.php";
+require_once "../_sys/logica_usuario.php";
 verificaUsuario();?>
     <form action="../_sys/escolher_produto.php" class="form" method="post">
         <link rel="stylesheet" type="text/css" href="../css/venda.css">
-        <input name="IDProduto" type="hidden" value="<?=$produto['IDProduto']?>">
-          <?php include("form_base_produto.php");?>
+        <input name="IDProduto" type="hidden" value="<?=$produto->id?>">
+          <?php require_once("form_base_produto.php");?>
         <tr>
             <td><label for="pessoa">Pessoa:</label>
                 <select name="IDPessoa" class="form-control">
@@ -49,4 +51,4 @@ verificaUsuario();?>
     </form>
 
 <script src="../js/newJS/venda.js"></script>
-<?php include "rodape.php";
+<?php require_once "rodape.php";

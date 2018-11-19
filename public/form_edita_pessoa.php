@@ -1,9 +1,9 @@
-<?php include "cabecalho.php";?>
+<?php require_once "cabecalho.php";?>
     <h1 class="adiciona-pessoa">Novo Cadastro</h1>
-<?php include "menu.php";?>
-<?php include "conteudo.php";
+<?php require_once "menu.php";
+require_once "conteudo.php";
 require_once "../consultas/consulta_pessoa.php";
-include "../_sys/logica_usuario.php";
+require_once "../_sys/logica_usuario.php";
 verificaUsuario();
 $id=$_POST['id'];
 $pessoa=buscaPessoa($conexao,$id);
@@ -14,7 +14,7 @@ $acessoF = ($pessoa['acesso']==2)?"checked='checked'":"";
 ?>
     <form action="../_sys/edita_pessoa.php" class="form" method="post">
         <input type="hidden" name="id" value="<?=$pessoa['IDPessoa']?>">
-     <?php include ("form_base_pessoa.php");?>
+     <?php require_once "form_base_pessoa.php";?>
 
             <tr>
                 <td><button class="btn btn-primary">Alterar</button></td>
@@ -22,4 +22,4 @@ $acessoF = ($pessoa['acesso']==2)?"checked='checked'":"";
             </tr>
         </table>
     </form>
-<?php include "rodape.php";
+<?php require_once "rodape.php";

@@ -1,9 +1,9 @@
 <?php
-include "../conexao/conecta.php";
+require_once "../conexao/conecta.php";
 
 function listaCategoria($conexao){
     $categorias=array();
-    $query = "select * from Categorias where ct_ativo =1";
+    $query = "select * from categorias where ct_ativo =1";
     $resultado = mysqli_query($conexao,$query);
     while ($categoria = mysqli_fetch_assoc($resultado)){
         array_push($categorias,$categoria);
@@ -12,6 +12,6 @@ function listaCategoria($conexao){
 }
 
 function insereCategoria($conexao,$categoria){
-	$query = "insert into Categorias (Nome_Categoria) values('{$categoria}')";
+	$query = "insert into categorias (Nome_Categoria) values('{$categoria}')";
 	 return mysqli_query($conexao,$query);
 }

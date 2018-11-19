@@ -1,14 +1,15 @@
-<?php
-require_once "../consultas/consulta_produto.php";
-include "../_sys/logica_usuario.php";
+<?php require_once "../consultas/consulta_produto.php";
+require_once "../_sys/logica_usuario.php";
+require_once "../classes/Produto.php";
+$produto = new Produto();
 verificaUsuario();
-$id=$_POST['id'];
-//var_dump($id);
-if (inativaProduto($conexao,$id)){
-    header("Location:../public/lista_produtos.php?removido=1");
+$produto->id=$_POST['id'];
+
+if (inativaProduto($conexao,$produto)){
+   header("Location:../public/lista_produtos.php");
     die();
 }else{
-    //header("Location:../public/form_produto.php");
+    header("Location:../public/form_produto.php");
     ?>
     <p class="alert-danger" >
     <?php

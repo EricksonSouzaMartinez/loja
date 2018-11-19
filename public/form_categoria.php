@@ -1,10 +1,7 @@
-<?php
-include "cabecalho.php";
-?>
+<?php require_once "cabecalho.php";?>
     <h1 class="adiciona-pessoa">Cadastrar Categoria</h1>
-<?php include "menu.php";
-include "conteudo.php";
-?>
+<?php require_once "menu.php";
+require_once "conteudo.php";?>
 <form action="../_sys/adiciona_categoria.php" method="post">
 	<table class="table">
 		<tr>

@@ -1,10 +1,8 @@
 <?php error_reporting(E_ALL ^ E_NOTICE);
-
 if (isset($_COOKIE['pessoaid'])) {
 	$IDPessoa = $_COOKIE['pessoaid'];
 	$PessoaAcesso = $_COOKIE['pessoaacesso'];
 }
-
 ?>
 <!DOCTYPE html>
 <html>

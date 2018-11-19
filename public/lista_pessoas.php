@@ -1,12 +1,10 @@
-<?php
-require_once "../consultas/consulta_pessoa.php";
+<?php require_once "../consultas/consulta_pessoa.php";
 require_once "../_sys/mostra_alerta.php";
-include "cabecalho.php";?>
+require_once "cabecalho.php";?>
     <h1 class="adiciona-pessoa">Lista de Pessoas</h1>
-<?php
-include "menu.php";
-include "conteudo.php";
-include "../_sys/logica_usuario.php";
+<?php require_once "menu.php";
+require_once "conteudo.php";
+require_once "../_sys/logica_usuario.php";
 verificaUsuario();
     ?>
     <link rel="stylesheet" href="../css/bootstrap/bootstrap.css">
@@ -53,5 +51,5 @@ endforeach;
 ?>
     </table>
 <?
-include "rodape.php";
+require_once "rodape.php";
 

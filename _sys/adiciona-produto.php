@@ -1,6 +1,5 @@
-<?php
-require_once "../consultas/consulta_produto.php";
-include "../_sys/logica_usuario.php";
+<?php require_once "../consultas/consulta_produto.php";
+require_once "../_sys/logica_usuario.php";
 require_once "../classes/Produto.php";
 require_once "../classes/Categoria.php";
 verificaUsuario();
@@ -10,7 +9,6 @@ $produto->nome_produto=$_POST['nome_produto'];
 $produto->preco_produto=$_POST['preco_produto'];
 $produto->quantidade_produto=$_POST['quantidade_produto'];
 $produto->categoria=$categoria->id =$_POST['categoria_id'];
-
 
 if (array_key_exists('usado',$_POST)){
     $produto->usado="true";

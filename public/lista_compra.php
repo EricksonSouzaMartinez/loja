@@ -1,14 +1,10 @@
-<?php
-include "cabecalho.php";
-?>
+<?php require_once "cabecalho.php";?>
 <h1>Lista de Compras</h1>
-<?php
-include "menu.php";
-include "conteudo.php";
+<?php require_once "menu.php";
+require_once "conteudo.php";
 require_once "../consultas/consulta_compra.php";
-$compras = mostraCompra($conexao,$IDPessoa,$PessoaAcesso);
+require_once "../classes/Compra.php";?>
 
-?>
 	<table class="table table-striped table-bordered">
 		<tr style="text-align: center">
 	        <td>NUMERO VENDA</td>
@@ -18,23 +14,19 @@ $compras = mostraCompra($conexao,$IDPessoa,$PessoaAcesso);
             <td>VALOR</td>
             <td>DATA COMPRA</td>
 	    </tr>
-
 <?php
-
+$compras = mostraCompra($conexao,$IDPessoa,$PessoaAcesso);
 foreach($compras as $compra):
-
-
 ?>
 	    <tr style="text-align: center">
-	        <td><?=$compra['IDCompra']?></td>
-	        <td id="nomepessoa"><?=$compra['Nome_compra']?></td>
-	        <td><?=$compra['produto_compra']?></td>
-	        <td><?=$compra['quantidade_compra']?></td>
-            <td><?=$compra['valor_compra']?></td>
-            <td><?=$compra['data_compra'];?></td>
+	        <td><?=$compra->id?></td>
+	        <td id="nomepessoa"><?=$compra->pessoa_id?></td>
+	        <td><?=$compra->produto_id?></td>
+	        <td><?=$compra->quantidade?></td>
+            <td><?=$compra->valor?></td>
+            <td><?=$compra->data;?></td>
 	    </tr>
 <?php
-
 endforeach;
 ?>
 </table>

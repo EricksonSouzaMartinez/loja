@@ -1,4 +1,4 @@
-<?php include "cabecalho.php";
+<?php require_once "cabecalho.php";
 require_once "../consultas/consulta_categoria.php";
 require_once "../consultas/consulta_produto.php";
 require_once "../classes/Produto.php";
@@ -16,16 +16,16 @@ $usado = ($produto->usado) ? "checked='checked'" : "";
 
 ?>
     <h1 class="adiciona-pessoa">Alterar Produto</h1>
-<?php include "menu.php";?>
-<?php include "conteudo.php";
-include "../_sys/logica_usuario.php";
+<?php require_once "menu.php";
+require_once "conteudo.php";
+require_once "../_sys/logica_usuario.php";
 verificaUsuario();?>
     <form action="../_sys/edita_produto.php" class="form" method="post">
         <input name="id" type="hidden" value="<?=$produto->id?>">
-        <?php include("form_base_produto.php");?>
+        <?php require_once("form_base_produto.php");?>
             <tr>
                 <td><button CLASS="btn btn-primary">Alterar</button></td>
             </tr>
         </table>
     </form>
-<?php include "rodape.php";
+<?php require_once "rodape.php";

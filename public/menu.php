@@ -1,6 +1,4 @@
-<?php
-include '../consultas/consulta_submenu.php';
-?>
+<?php require_once '../consultas/consulta_submenu.php';?>
 </div>
 <div class="menu">
 	<ul>

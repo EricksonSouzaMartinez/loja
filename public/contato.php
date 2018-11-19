@@ -1,9 +1,7 @@
 <?php require_once "cabecalho.php";?>
 <h1>Enviar Email</h1>
-<?php
-require_once "menu.php";
-require_once "conteudo.php";
-?>
+<?php require_once "menu.php";
+require_once "conteudo.php"; ?>
 
 <form action="../_sys/envia_contato.php" class="form" method="post">
     <table class="table border">
@@ -21,4 +19,4 @@ require_once "conteudo.php";
         </tr>
     </table>
 </form>
-<?=require_once "rodape.php";?>
+<?php require_once "rodape.php";?>

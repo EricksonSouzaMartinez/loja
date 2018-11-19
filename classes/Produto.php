@@ -8,4 +8,5 @@ class Produto
     public $quantidade_produto;
     public $categoria;
     public $usado;
+
 }
